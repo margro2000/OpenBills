@@ -169,9 +169,7 @@ export const Nav = () => {
 
         <Navbar.Item>
           <Button auto flat href="#">
-            <Link href="/billreader">
-              <a>Subscribe to Open Bills</a>
-            </Link>
+            <Link href="/billreader">Subscribe to Open Bills</Link>
           </Button>
         </Navbar.Item>
         <Navbar.Item hideIn={"xs"}>
