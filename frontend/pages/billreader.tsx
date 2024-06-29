@@ -22,13 +22,13 @@ const BillReader: NextPage = () => {
 
         <Grid xs={12} sm={6} css={{ height: '50%' }}>
           <Card css={{ height: '100%' }}>
-            <Card.Header>Recommended Questions/Answers</Card.Header>
+            <Card.Header>Summary/Abstract</Card.Header>
           </Card>
         </Grid>
         
         <Grid xs={12} sm={6} css={{ height: '50%' }}>
           <Card css={{ height: '100%' }}>
-            <Card.Header>Summary/Abstract</Card.Header>
+            <Card.Header>Recommended Questions/Answers</Card.Header>
           </Card>
         </Grid>
         
