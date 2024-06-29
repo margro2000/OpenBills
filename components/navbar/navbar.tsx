@@ -164,7 +164,7 @@ export const Nav = () => {
 
             <Navbar.Item>
                <Button auto flat href="#">
-                  Start free trial
+                  Subscribe to Open Bills
                </Button>
             </Navbar.Item>
             <Navbar.Item hideIn={'xs'}>

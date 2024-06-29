@@ -72,8 +72,7 @@ export const Hero = () => {
                   size={'$lg'}
                   span
                >
-                  The easiest way to build React Landing page in seconds. Save
-                  time and focus on your project.
+                  We should be able to read and understand bills, without spending hours reading 1000 page documents.
                </Text>
 
                <Flex
@@ -102,7 +101,7 @@ export const Hero = () => {
                         alignItems: 'center',
                      }}
                   >
-                     <CheckIcon /> No credit card required.
+                     <CheckIcon /> Its 100% Free and Open Source.
                   </Flex>
                   <Flex
                      css={{
@@ -110,7 +109,7 @@ export const Hero = () => {
                         alignItems: 'center',
                      }}
                   >
-                     <CheckIcon /> 14-day free trial.
+                     {/* <CheckIcon /> 14-day free trial.
                   </Flex>
                   <Flex
                      css={{
@@ -118,7 +117,7 @@ export const Hero = () => {
                         alignItems: 'center',
                      }}
                   >
-                     <CheckIcon /> Cancel anytime.
+                     <CheckIcon /> Cancel anytime. */}
                   </Flex>
                </Flex>
             </Box>
