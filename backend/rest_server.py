@@ -9,7 +9,8 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.post("/uploadfile/", response_class=PlainTextResponse)
+@app.post("/summarize/", response_class=PlainTextResponse)
 async def create_upload_file(file: UploadFile = File(...)):
     content = await file.read()
     return content.decode("utf-8")
+
