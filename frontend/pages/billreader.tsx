@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { Layout } from "../components/navbar/layout";
 import { Button, Card, Grid, Input } from "@nextui-org/react";
+import { AbstractCard } from "../components/cards/AbstractCard";
 
 const BillReader: NextPage = () => {
   return (
@@ -15,17 +16,15 @@ const BillReader: NextPage = () => {
               />
             </Grid>
             <Grid xs={4}>
-              <Button auto>Submit</Button>
+              <Button auto color="gradient" ghost>Submit</Button>
             </Grid>
           </Grid.Container>
         </Grid>
 
         <Grid xs={12} sm={6} css={{ height: '50%' }}>
-          <Card css={{ height: '100%' }}>
-            <Card.Header>Summary/Abstract</Card.Header>
-          </Card>
+          <AbstractCard/>
         </Grid>
-        
+
         <Grid xs={12} sm={6} css={{ height: '50%' }}>
           <Card css={{ height: '100%' }}>
             <Card.Header>Recommended Questions/Answers</Card.Header>
