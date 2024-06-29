@@ -101,7 +101,7 @@ export const Hero = () => {
                         alignItems: 'center',
                      }}
                   >
-                     <CheckIcon /> Its 100% Free and Open Source.
+                     <CheckIcon /> Its 100% Free and Open.
                   </Flex>
                   <Flex
                      css={{

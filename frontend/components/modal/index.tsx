@@ -18,7 +18,7 @@ export const ModalLogin = () => {
    };
    return (
       <div>
-         <Navbar.Link onClick={handler}>Login</Navbar.Link>
+         {/* <Navbar.Link onClick={handler}>Login</Navbar.Link> */}
          <Modal
             closeButton
             blur
