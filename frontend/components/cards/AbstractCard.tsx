@@ -7,6 +7,7 @@ export const AbstractCard = ({abstract} : {abstract: string}) => {
             <Card.Header>
                 <Text b h5>Things of Note</Text>
             </Card.Header>
+            <Card.Divider/>
             <Card.Body>
                 <Text>{abstract}</Text>
             </Card.Body>

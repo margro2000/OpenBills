@@ -80,20 +80,25 @@ const BillReader: NextPage = () => {
 
   return (
     <Layout>
-      <Grid.Container gap={2} css={{ height: "100vh", padding: "1rem" }}>
-        <Card css={{ width: "100%" }}>
-          <Card.Body>
-            <input
-              type="file"
-              id="fileUpload"
-              hidden
-              onChange={handleFileChange}
-            />
-            <label htmlFor="fileUpload">
-              <Button as="span">Upload File</Button>
-            </label>
-            <Button onClick={handleSubmit}>Submit</Button>
-          </Card.Body>
+      <Grid.Container gap={2} css={{ height: '100vh', padding: '1rem' }}>
+      <Card css={{ width: '100%' }}>
+            <Card.Body>
+                <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
+                <Grid.Container>
+                    <Grid style={{paddingLeft: '1rem'}}>
+                    <label htmlFor="fileUpload">
+                        <Button color="primary" bordered as="span">
+                            Upload File
+                        </Button>
+                    </label>
+                    </Grid>
+                    <Grid style={{paddingLeft: '3rem'}}>
+                        <Button onClick={handleSubmit}>
+                            Submit
+                        </Button>
+                    </Grid>
+                </Grid.Container>
+            </Card.Body>
         </Card>
         <Grid
           xs={12}
