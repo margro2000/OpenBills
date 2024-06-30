@@ -15,7 +15,7 @@ export const Faq = () => {
             }}
             direction={'column'}
          >
-            <Flex align={'center'} direction={'column'}>
+            {/* <Flex align={'center'} direction={'column'}>
                <Text span css={{color: '$blue600'}}>
                   FAQ
                </Text>
@@ -30,7 +30,7 @@ export const Faq = () => {
                >
                   
                </Text>
-            </Flex>
+            </Flex> */}
 
             <Flex
                css={{
