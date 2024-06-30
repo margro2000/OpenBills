@@ -30,9 +30,9 @@ export const Nav = () => {
       >
          <Navbar.Brand>
             <Navbar.Toggle aria-label="toggle navigation" showIn="xs" />
-            <AcmeLogo />
+            {/* <AcmeLogo /> */}
             <Text b color="inherit" hideIn="xs">
-               ACME
+               OpenBills
             </Text>
             <Navbar.Content
                hideIn="sm"

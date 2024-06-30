@@ -21,15 +21,15 @@ const Home: NextPage = () => {
          <Box as="main">
             <Hero />
             <Trusted />
-            <Features1 />
+            {/* <Features1 /> */}
             {/* <Features2 />
             <Features3 /> */}
             {/* <Testimonials /> */}
-            <Statistics />
+            {/* <Statistics /> */}
             {/* <Plans /> */}
             <Faq />
             <Trial />
-            <Footer />
+            {/* <Footer /> */}
          </Box>
       </Layout>
    );
