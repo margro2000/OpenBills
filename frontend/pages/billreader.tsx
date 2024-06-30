@@ -97,10 +97,10 @@ const BillReader: NextPage = () => {
         
         <Grid xs={12} sm={6} css={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
             <Grid css={{ flex: '1' }}>
-                <AbstractCard abstract={"these are the things to note"}/>
+                <AbstractCard abstract={data ? data.abstract : ""}/>
             </Grid>
             <Grid css={{ flex: '1' }}>
-                <OutlineCard/>
+                <OutlineCard outlineText={data ? data.summary : ""}/>
             </Grid>
         </Grid>
         
