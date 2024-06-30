@@ -25,13 +25,12 @@ const BillReader: NextPage = () => {
          </Grid>
         
         <Grid xs={12} sm={6} css={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
-          <Grid css={{ flex: '1' }}>
-            <AbstractCard/>
-          </Grid>
-          
-          <Grid css={{ flex: '1' }}>
-              <OutlineCard/>
-          </Grid>
+            <Grid css={{ flex: '1' }}>
+                <OutlineCard/>
+            </Grid>
+            <Grid css={{ flex: '1' }}>
+                <AbstractCard/>
+            </Grid>
         </Grid>
         
       </Grid.Container>
