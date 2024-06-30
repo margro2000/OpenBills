@@ -19,21 +19,43 @@ const BillReader: NextPage = () => {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [promptValue, setPromptValue] = useState("");
+  const [hackString, setHackString] = useState(`${Math.random()}`);
+  const [messages, setMessages] = useState([
+    {
+      prompt: "What is the point of this bill?",
+      response: "this bill is about importing lemons from Guatemala",
+    },
+    {
+      prompt: "Who wrote it?",
+      response: "Senator Raskin",
+    },
+  ]);
 
-  const [state, setState] = useState({
-    messages: [
-      {
-        prompt: "What is the point of this bill?",
-        response: "this bill is about importing lemons from Guatemala",
-      },
-      {
-        prompt: "Who wrote it?",
-        response: "Senator Raskin",
-      },
-    ],
-  });
+  const handlePromptSubmit = () => {
+    //TODO send prompt value to server
+    //create new message
 
-  const { messages } = state;
+    const newMessage = {
+      prompt: promptValue,
+      response: "",
+    };
+
+    const promise = new Promise((res) => {
+      setTimeout(() => res("this is the response"), 5000);
+    }).then((res) => {
+      setMessages((messages) => {
+        const m_messages = [...messages];
+        const messageToEdit = m_messages[m_messages.length - 1];
+
+        messageToEdit.response = res;
+        return m_messages;
+      });
+      setHackString(`${Math.random()}`);
+    });
+
+    setMessages((val) => [...val, newMessage]);
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -81,6 +103,7 @@ const BillReader: NextPage = () => {
   console.log("file", file);
   console.log("error", error);
 
+  console.log(messages);
   return (
     <Layout>
          <Nav  />
@@ -142,16 +165,27 @@ const BillReader: NextPage = () => {
               style={{ padding: "1rem" }}
             >
               <Grid xs={8}>
-                <Input placeholder="Ask a Question" css={{ width: "100%" }} />
+                <Input
+                  placeholder="Ask a Question"
+                  css={{ width: "100%" }}
+                  value={promptValue}
+                  onChange={(e) => setPromptValue(e.target.value)}
+                />
               </Grid>
               <Grid xs={4}>
-                <Button auto color="gradient" ghost>
+                <Button
+                  auto
+                  color="gradient"
+                  ghost
+                  onPress={handlePromptSubmit}
+                >
                   Submit
                 </Button>
               </Grid>
             </Grid.Container>
             <div className="chatWindow">
               {messages.map((message, i) => {
+                console.log("messages updated", messages);
                 const { prompt, response } = message;
 
                 //just display message if its not the current one
@@ -169,12 +203,14 @@ const BillReader: NextPage = () => {
                   jsx = (
                     <div key={prompt}>
                       <div>{prompt}</div>
-                      <TypeAnimation
-                        sequence={[response]}
-                        wrapper="span"
-                        speed={50}
-                        //  style={{ fontSize: "2em", display: "inline-block" }}
-                      />
+                      <div key={hackString}>
+                        <TypeAnimation
+                          sequence={[response]}
+                          wrapper="span"
+                          speed={50}
+                          //  style={{ fontSize: "2em", display: "inline-block" }}
+                        />
+                      </div>
                     </div>
                   );
                 }
