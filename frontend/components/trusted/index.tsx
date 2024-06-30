@@ -18,7 +18,7 @@ export const Trusted = () => {
             }}
          >
             <Text h2 css={{textAlign: 'center'}}>
-               Trusted by over 10000+ customers
+               We Are Actually Reading the Bills
             </Text>
             <Text
                css={{
@@ -29,8 +29,7 @@ export const Trusted = () => {
                weight="normal"
                size={'$lg'}
             >
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-               eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               No one can read bills  being assed that are thousand of pages long and have hidden inserts. This is the regulation effecting our lives and we deserve to know. Upload, read, and chat with the document. Find the random lobbyist inserts. It's time to read the bills.
             </Text>
             <Grid.Container
                gap={6}
@@ -46,7 +45,7 @@ export const Trusted = () => {
                   },
                }}
             >
-               <Grid sm={3} justify="center">
+               {/* <Grid sm={3} justify="center">
                   <Flex align={'center'} justify={'center'}>
                      <AcmeLogo />
                      <Text weight={'semibold'} span size={'$lg'}>
@@ -109,7 +108,7 @@ export const Trusted = () => {
                         Company 8
                      </Text>
                   </Flex>
-               </Grid>
+               </Grid> */}
             </Grid.Container>
          </Flex>
 

@@ -83,7 +83,7 @@ export const Hero = () => {
                   wrap={'wrap'}
                >
                   <Input placeholder="Enter your email address" size="lg" />
-                  <Button>Start Free Trial</Button>
+                  <Button>Subscribe to Open Bills</Button>
                </Flex>
                <Flex
                   wrap={'wrap'}

@@ -20,7 +20,7 @@ export const Statistics = () => {
                      textAlign: 'center',
                   }}
                >
-                  Over 8000+ projects completed
+                  Over 100+ Bills Read
                </Text>
                <Text
                   span
@@ -29,9 +29,7 @@ export const Statistics = () => {
                      textAlign: 'center',
                   }}
                >
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iusto provident omnis deleniti temporibus pariatur corporis
-                  aperiam
+                  Search bills to see what 
                </Text>
             </Flex>
             <Flex
