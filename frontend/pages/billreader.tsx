@@ -85,6 +85,8 @@ const BillReader: NextPage = () => {
             <Card.Body>
                 <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
                 <Grid.Container>
+                    {file ? 
+                    <p>{file.name}</p> :
                     <Grid style={{paddingLeft: '1rem'}}>
                     <label htmlFor="fileUpload">
                         <Button color="primary" bordered as="span">
@@ -92,6 +94,7 @@ const BillReader: NextPage = () => {
                         </Button>
                     </label>
                     </Grid>
+}
                     <Grid style={{paddingLeft: '3rem'}}>
                         <Button onClick={handleSubmit}>
                             Upload
