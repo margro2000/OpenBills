@@ -65,6 +65,7 @@ const BillReader: NextPage = () => {
   const handleFileRemove = () => {
     setFile(null);
   };
+
   console.log("file", file);
   const handleSubmit = async () => {
     console.log("IM HERE!!");
@@ -112,8 +113,9 @@ const BillReader: NextPage = () => {
             <Card.Body>
                 <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
                 <Grid.Container>
+                    <Grid style={{paddingLeft: '1rem'}}>
                     {file ? 
-                        <Grid>
+                  <Grid>
                   <Badge
                     css={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
                     color="success"
@@ -132,14 +134,13 @@ const BillReader: NextPage = () => {
                     </Badge>
                   </Badge>
                 </Grid> :
-                    <Grid style={{paddingLeft: '1rem'}}>
                     <label htmlFor="fileUpload">
                         <Button color="primary" bordered as="span">
                             Select a File
                         </Button>
                     </label>
+                }
                     </Grid>
-}
                     <Grid style={{paddingLeft: '3rem'}}>
                         <Button onClick={handleSubmit}>
                             Upload
