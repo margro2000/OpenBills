@@ -4,6 +4,7 @@ import { Button, Card, Grid, Input } from "@nextui-org/react";
 import { AbstractCard } from "../components/cards/AbstractCard";
 import { OutlineCard } from "../components/cards/OutlineCard";
 import { useEffect, useState } from "react";
+import { ApiResponse } from "../interfaces";
 
 export const fetchData = async () => {
     const response = await fetch('http://127.0.0.1:8000/summarize_bill/');
@@ -14,33 +15,68 @@ export const fetchData = async () => {
   };
 
 const BillReader: NextPage = () => {
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<ApiResponse | null>(null);
+    const [file, setFile] = useState<File | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const loadData = async () => {
-          try {
-            const result = await fetchData();
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files[0]) {
+            setFile(event.target.files[0]);
+        }
+    };
+    console.log("file", file)
+    const handleSubmit = async () => {
+        console.log("IM HERE!!")
+        if (!file) {
+            setError('No file selected');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/summarize_bill/`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            console.log("Status:", response.status);
+            console.log("Status Text:", response.statusText);
+
+            const result: ApiResponse = await response.json();
+            console.log("Result:", result);
             setData(result);
-          } catch (error) {
-            setError('Failed to fetch data');
-          }
-        };
-    
-        loadData();
-      }, []);
+            setError(null);
+
+        } catch (error) {
+            console.error("Error:", error);
+            setError('Failed to upload file');
+        }
+    };
+
     console.log("data", data)
+    console.log("file", file)
+    console.log("error", error)
+
   return (
     <Layout>
       <Grid.Container gap={2} css={{ height: '100vh', padding: '1rem' }}>
       <Card css={{ width: '100%' }}>
             <Card.Body>
-                <input type="file" id="fileUpload" hidden />
+                <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
                 <label htmlFor="fileUpload">
                     <Button as="span">
                         Upload File
                     </Button>
                 </label>
+                <Button onClick={handleSubmit}>
+                    Submit
+                </Button>
             </Card.Body>
         </Card>
          <Grid xs={12} sm={6} css={{ display: 'flex', flexDirection: 'column',height:'100%', gap: '10px' }}>
