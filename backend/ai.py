@@ -11,8 +11,6 @@ def cached_request(prompt, model_name="gemini-1.5-flash", cache_dir='/tmp'):
     if os.path.exists(f'{cache_dir}/{prompt_id}.txt'):
         with open(f'{cache_dir}/{prompt_id}.txt', 'r') as f:
             return f.read()
-    else:
-        raise Exception(f"No cached file found for {prompt_id}")
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
     generation_config = {
             "temperature": 1,

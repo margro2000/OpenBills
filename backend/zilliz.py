@@ -7,9 +7,10 @@ import re
 
 
 # Set up OpenAI API key
-openai.api_key = ""
+# openai.api_key = ""
 zilliz_token = ""
-zilliz_host = ""
+
+assert zilliz_token is not "", "Please set your Zilliz token in the zilliz_token variable"
 
 
 def read_statute_json(file_path):

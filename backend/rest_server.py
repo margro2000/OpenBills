@@ -1,9 +1,9 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel
 import ai
 from fastapi.middleware.cors import CORSMiddleware
-
+import zilliz
 
 import json 
 TEST = 0
@@ -54,5 +54,8 @@ async def summarize_bill(file: UploadFile = File(...)):
     return response
 
 @app.post("/ask_bill/")
-async def ask_bill(question: str, file: UploadFile = File(...)):
-    return "Not yet implemented"
+async def ask_bill(question: str = Form(...)):
+    prompt = zilliz.query_and_format_results(question)
+    print(prompt)
+    answer = ai.cached_request(prompt)
+    return {"answer": answer}
