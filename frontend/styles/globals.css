@@ -1,10 +1,17 @@
 html,
 body {
-   padding: 0;
-   margin: 0;
-   font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
 }
 
 * {
-   box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.chatWindow {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
