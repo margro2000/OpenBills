@@ -6,7 +6,7 @@ import { AbstractCard } from "../components/cards/AbstractCard";
 import { OutlineCard } from "../components/cards/OutlineCard";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "../interfaces";
-
+import {Nav} from '../components/navbar/navbar';
 export const fetchData = async () => {
   const response = await fetch("http://127.0.0.1:8000/summarize_bill/");
   if (!response.ok) {
@@ -80,7 +80,8 @@ const BillReader: NextPage = () => {
 
   return (
     <Layout>
-      <Grid.Container gap={2} css={{ height: '100vh', padding: '1rem' }}>
+         <Nav  />
+      <Grid.Container gap={2} css={{ marginTop: '5vh', height: '100vh', padding: '1rem' }}>
       <Card css={{ width: '100%' }}>
             <Card.Body>
                 <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
