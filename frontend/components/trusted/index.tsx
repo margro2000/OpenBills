@@ -29,7 +29,7 @@ export const Trusted = () => {
                weight="normal"
                size={'$lg'}
             >
-               No one can read bills  being assed that are thousand of pages long and have hidden inserts. This is the regulation effecting our lives and we deserve to know. Upload, read, and chat with the document. Find the random lobbyist inserts. It's time to read the bills.
+               Our democracy faces a critical challenge: thousand-page bills filled with complex language and hidden provisions shape our lives, yet remain unreadable for most citizens. This lack of transparency conceals special interests and undermines informed civic participation. We need a tool that can upload, read, and allow us to chat with these massive documents, highlighting potential lobbyist inserts and explaining complex sections in plain language. By making bills truly accessible, we can reclaim our right to be informed citizens, spot hidden agendas, and hold our representatives accountable. It's time to shine a light on the legislative process and empower every American to understand the laws that govern us. 
             </Text>
             <Grid.Container
                gap={6}
