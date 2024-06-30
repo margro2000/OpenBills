@@ -25,8 +25,10 @@ class BillSummaryResponse(BaseModel):
     abstract: str
     summary: str
     outliers: str
+
+
 @app.post("/summarize_bill/")
-async def create_upload_file(file: UploadFile = File(...)):
+async def summarize_bill(file: UploadFile = File(...)):
     content = await file.read()
     bill_txt = content.decode("utf-8")
     outliers_prompt = f"""
@@ -50,3 +52,7 @@ async def create_upload_file(file: UploadFile = File(...)):
         outliers=ai.cached_request(outliers_prompt),
     )
     return response
+
+@app.post("/ask_bill/")
+async def ask_bill(question: str, file: UploadFile = File(...)):
+    return "Not yet implemented"
