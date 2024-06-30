@@ -3,8 +3,33 @@ import { Layout } from "../components/navbar/layout";
 import { Button, Card, Grid, Input } from "@nextui-org/react";
 import { AbstractCard } from "../components/cards/AbstractCard";
 import { OutlineCard } from "../components/cards/OutlineCard";
+import { useEffect, useState } from "react";
+
+export const fetchData = async () => {
+    const response = await fetch('http://127.0.0.1:8000/summarize_bill/');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  };
 
 const BillReader: NextPage = () => {
+    const [data, setData] = useState<any>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const loadData = async () => {
+          try {
+            const result = await fetchData();
+            setData(result);
+          } catch (error) {
+            setError('Failed to fetch data');
+          }
+        };
+    
+        loadData();
+      }, []);
+    console.log("data", data)
   return (
     <Layout>
       <Grid.Container gap={2} css={{ height: '100vh', padding: '1rem' }}>
