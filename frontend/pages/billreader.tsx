@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { Layout } from "../components/navbar/layout";
-import { Button, Card, Grid, Input } from "@nextui-org/react";
+import { Badge, Button, Card, Grid, Input } from "@nextui-org/react";
 import { TypeAnimation } from "react-type-animation";
 import { AbstractCard } from "../components/cards/AbstractCard";
 import { OutlineCard } from "../components/cards/OutlineCard";
@@ -39,6 +39,9 @@ const BillReader: NextPage = () => {
     if (event.target.files && event.target.files[0]) {
       setFile(event.target.files[0]);
     }
+  };
+  const handleFileRemove = () => {
+    setFile(null);
   };
   console.log("file", file);
   const handleSubmit = async () => {
@@ -87,7 +90,24 @@ const BillReader: NextPage = () => {
                 <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
                 <Grid.Container>
                     {file ? 
-                    <p>{file.name}</p> :
+                        <Grid>
+                  <Badge
+                    css={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                    color="secondary"
+                    variant="flat"
+                    size="sm"
+                  >
+                    <p>{file.name}</p>
+                    <Badge
+                      css={{ cursor: 'pointer' }}
+                      color="secondary"
+                      variant="flat"
+                      onClick={handleFileRemove}
+                    >
+                      x
+                    </Badge>
+                  </Badge>
+                </Grid> :
                     <Grid style={{paddingLeft: '1rem'}}>
                     <label htmlFor="fileUpload">
                         <Button color="primary" bordered as="span">
