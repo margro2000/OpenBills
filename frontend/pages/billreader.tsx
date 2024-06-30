@@ -8,6 +8,16 @@ const BillReader: NextPage = () => {
   return (
     <Layout>
       <Grid.Container gap={2} css={{ height: '100vh', padding: '1rem' }}>
+      <Card css={{ width: '100%' }}>
+            <Card.Body>
+                <input type="file" id="fileUpload" hidden />
+                <label htmlFor="fileUpload">
+                    <Button as="span">
+                        Upload File
+                    </Button>
+                </label>
+            </Card.Body>
+        </Card>
          <Grid xs={12} sm={6} css={{ display: 'flex', flexDirection: 'column',height:'100%', gap: '10px' }}>
             <Card style={{height:'100%'}}>
                 <Grid.Container gap={1} alignItems="center" style={{padding: '1rem'}}>

@@ -53,7 +53,7 @@ export const Nav = () => {
                         iconRight={icons.chevron}
                         ripple={false}
                      >
-                        Features
+                        Browse Documents
                      </Dropdown.Button>
                   </Navbar.Item>
                   <Dropdown.Menu
@@ -117,10 +117,10 @@ export const Nav = () => {
                   </Dropdown.Menu>
                </Dropdown>
                <Navbar.Link isActive href="#">
-                  Customers
+                  Home
                </Navbar.Link>
-               <Navbar.Link href="#">Pricing</Navbar.Link>
-               <Navbar.Link href="#">Company</Navbar.Link>
+               {/* <Navbar.Link href="#">Pricing</Navbar.Link>
+               <Navbar.Link href="#">Company</Navbar.Link> */}
             </Navbar.Content>
          </Navbar.Brand>
 
@@ -163,9 +163,11 @@ export const Nav = () => {
             <ModalLogin />
 
             <Navbar.Item>
-               <Button auto flat href="#">
+            <Link href="/billreader">
+               <Button auto flat href="/billreader">
                   Upload a Bill
                </Button>
+               </Link>
             </Navbar.Item>
             <Navbar.Item hideIn={'xs'}>
                <Link
