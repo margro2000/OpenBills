@@ -93,15 +93,16 @@ const BillReader: NextPage = () => {
                         <Grid>
                   <Badge
                     css={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                    color="secondary"
+                    color="success"
                     variant="flat"
                     size="sm"
                   >
                     <p>{file.name}</p>
                     <Badge
                       css={{ cursor: 'pointer' }}
-                      color="secondary"
+                      color="success"
                       variant="flat"
+                      size="xs"
                       onClick={handleFileRemove}
                     >
                       x
