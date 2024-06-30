@@ -4,7 +4,7 @@ from pymilvus import connections, Collection, FieldSchema, CollectionSchema, Dat
 import numpy as np
 from pydantic import BaseModel
 import re
-from parser import parse_data
+
 
 # Set up OpenAI API key
 openai.api_key = ""
@@ -136,6 +136,44 @@ def query_and_format_results(user_query, collection_name="statutes"):
     connections.disconnect("default")
 
     return prompt
+
+
+class Statute(BaseModel):
+    statute_text: str
+    statute_metadata: str
+
+
+def parse_data(file_url: str) -> list[Statute]:
+    # Data reading
+    with open("./aca.txt") as file:
+        data = file.read()
+    data = data.replace("\n", " ")
+
+    # Data parsing
+    statutes = re.split(r"\[\[.*?\]\]", data)
+    statutes.pop()
+    section_titles = re.findall(r"\[\[.*?\]\]", data)
+
+    def section_statute_str(section_title):
+        pattern = r"\[\[Page (\d+) STAT\. (\d+)\]\]"
+
+        match = re.search(pattern, section_title)
+        if match:
+            json_object = {"statute_metadata": int(match.group(2))}
+            # print(json_object)
+            return json_object
+        else:
+            # print("No match found")
+            pass
+        return None
+
+    # Pretty mapping statements
+    title_jsons = list(map(lambda x: section_statute_str(x), section_titles))
+    statutes = list(map(lambda x: {"statute_text": x}, statutes))
+    return_jsons = list(map(lambda x, y: {**x, **y}, title_jsons, statutes))
+    if len(return_jsons) == 0:
+        raise ValueError("No JSONs generated")
+    return return_jsons
 
 
 if __name__ == "__main__":
