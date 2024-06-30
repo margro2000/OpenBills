@@ -6,7 +6,8 @@ import { AbstractCard } from "../components/cards/AbstractCard";
 import { OutlineCard } from "../components/cards/OutlineCard";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "../interfaces";
-import {Nav} from '../components/navbar/navbar';
+import { Nav } from "../components/navbar/navbar";
+import { Loading } from "react-loading-dot";
 export const fetchData = async () => {
   const response = await fetch("http://127.0.0.1:8000/summarize_bill/");
   if (!response.ok) {
@@ -15,22 +16,39 @@ export const fetchData = async () => {
   return response.json();
 };
 
+const generateResponse = async (prompt) => {
+  //   try {
+  //     const response = await fetch(`http://127.0.0.1:8000/summarize_bill/`, {
+  //       method: "POST",
+  //       body: prompt,
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+
+  //     console.log("Status:", response.status);
+  //     console.log("Status Text:", response.statusText);
+
+  //     const result: ApiResponse = await response.json();
+  //     console.log("Result:", result);
+  //     return result;
+  //   } catch (error) {
+  //     return error;
+  //   }
+
+  return new Promise((res) =>
+    setTimeout(() => res("this is the response"), 5000)
+  );
+};
+
 const BillReader: NextPage = () => {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [promptValue, setPromptValue] = useState("");
   const [hackString, setHackString] = useState(`${Math.random()}`);
-  const [messages, setMessages] = useState([
-    {
-      prompt: "What is the point of this bill?",
-      response: "this bill is about importing lemons from Guatemala",
-    },
-    {
-      prompt: "Who wrote it?",
-      response: "Senator Raskin",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const handlePromptSubmit = () => {
     //TODO send prompt value to server
@@ -41,9 +59,7 @@ const BillReader: NextPage = () => {
       response: "",
     };
 
-    const promise = new Promise((res) => {
-      setTimeout(() => res("this is the response"), 5000);
-    }).then((res) => {
+    generateResponse(promptValue).then((res) => {
       setMessages((messages) => {
         const m_messages = [...messages];
         const messageToEdit = m_messages[m_messages.length - 1];
@@ -107,24 +123,35 @@ const BillReader: NextPage = () => {
   console.log(messages);
   return (
     <Layout>
-         <Nav  />
-      <Grid.Container gap={2} css={{ marginTop: '5vh', height: '100vh', padding: '1rem' }}>
-      <Card css={{ width: '100%' }}>
-            <Card.Body>
-                <input type="file" id="fileUpload" hidden onChange={handleFileChange}/>
-                <Grid.Container>
-                    <Grid style={{paddingLeft: '1rem'}}>
-                    {file ? 
-                  <Grid>
+      <Nav />
+      <Grid.Container
+        gap={2}
+        css={{ marginTop: "5vh", height: "100vh", padding: "1rem" }}
+      >
+        <Card css={{ width: "100%" }}>
+          <Card.Body>
+            <input
+              type="file"
+              id="fileUpload"
+              hidden
+              onChange={handleFileChange}
+            />
+            <Grid.Container>
+              {file ? (
+                <Grid>
                   <Badge
-                    css={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                    css={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
                     color="success"
                     variant="flat"
                     size="sm"
                   >
                     <p>{file.name}</p>
                     <Badge
-                      css={{ cursor: 'pointer' }}
+                      css={{ cursor: "pointer" }}
                       color="success"
                       variant="flat"
                       size="xs"
@@ -133,21 +160,21 @@ const BillReader: NextPage = () => {
                       x
                     </Badge>
                   </Badge>
-                </Grid> :
-                    <label htmlFor="fileUpload">
-                        <Button color="primary" bordered as="span">
-                            Select a File
-                        </Button>
-                    </label>
-                }
-                    </Grid>
-                    <Grid style={{paddingLeft: '3rem'}}>
-                        <Button onClick={handleSubmit}>
-                            Upload
-                        </Button>
-                    </Grid>
-                </Grid.Container>
-            </Card.Body>
+                </Grid>
+              ) : (
+                <Grid style={{ paddingLeft: "1rem" }}>
+                  <label htmlFor="fileUpload">
+                    <Button color="primary" bordered as="span">
+                      Select a File
+                    </Button>
+                  </label>
+                </Grid>
+              )}
+              <Grid style={{ paddingLeft: "3rem" }}>
+                <Button onClick={handleSubmit}>Upload</Button>
+              </Grid>
+            </Grid.Container>
+          </Card.Body>
         </Card>
         <Grid
           xs={12}
@@ -204,14 +231,20 @@ const BillReader: NextPage = () => {
                   jsx = (
                     <div key={prompt}>
                       <div>{prompt}</div>
-                      <div key={hackString}>
-                        <TypeAnimation
-                          sequence={[response]}
-                          wrapper="span"
-                          speed={50}
-                          //  style={{ fontSize: "2em", display: "inline-block" }}
-                        />
-                      </div>
+                      {response === "" ? (
+                        <div>
+                          <Loading size="0.5rem" />
+                        </div>
+                      ) : (
+                        <div key={hackString}>
+                          <TypeAnimation
+                            sequence={[response]}
+                            wrapper="span"
+                            speed={50}
+                            //  style={{ fontSize: "2em", display: "inline-block" }}
+                          />
+                        </div>
+                      )}
                     </div>
                   );
                 }
