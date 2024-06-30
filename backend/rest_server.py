@@ -6,10 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 import json 
-TEST = 1
+TEST = 0
 app = FastAPI()
 origins = [
-    "http://localhost:3005",
+    "http://localhost:3000",
 ]
 app.add_middleware(
     CORSMiddleware,
