@@ -88,13 +88,13 @@ const BillReader: NextPage = () => {
                     <Grid style={{paddingLeft: '1rem'}}>
                     <label htmlFor="fileUpload">
                         <Button color="primary" bordered as="span">
-                            Upload File
+                            Select a File
                         </Button>
                     </label>
                     </Grid>
                     <Grid style={{paddingLeft: '3rem'}}>
                         <Button onClick={handleSubmit}>
-                            Submit
+                            Upload
                         </Button>
                     </Grid>
                 </Grid.Container>
