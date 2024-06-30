@@ -77,43 +77,43 @@ export const Nav = () => {
                      <Dropdown.Item
                         key="autoscaling"
                         showFullDescription
-                        description="ACME scales apps to meet user demand, automagically, based on load."
+                        description="Large chouse and senate documents"
                         icon={icons.scale}
                      >
-                        Autoscaling
+                        Federal Bills
                      </Dropdown.Item>
                      <Dropdown.Item
                         key="usage_metrics"
                         showFullDescription
-                        description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+                        description="Bills from your local legislature"
                         icon={icons.activity}
                      >
-                        Usage Metrics
+                        Local Bills
                      </Dropdown.Item>
-                     <Dropdown.Item
+                     {/* <Dropdown.Item
                         key="production_ready"
                         showFullDescription
                         description="ACME runs on ACME, join us and others serving requests at web scale."
                         icon={icons.flash}
                      >
                         Production Ready
-                     </Dropdown.Item>
-                     <Dropdown.Item
+                     </Dropdown.Item> */}
+                     {/* <Dropdown.Item
                         key="99_uptime"
                         showFullDescription
                         description="Applications stay on the grid with high availability and high uptime guarantees."
                         icon={icons.server}
                      >
                         +99% Uptime
-                     </Dropdown.Item>
-                     <Dropdown.Item
+                     </Dropdown.Item> */}
+                     {/* <Dropdown.Item
                         key="supreme_support"
                         showFullDescription
                         description="Overcome any challenge with a supporting team ready to respond."
                         icon={icons.user}
                      >
                         +Supreme Support
-                     </Dropdown.Item>
+                     </Dropdown.Item> */}
                   </Dropdown.Menu>
                </Dropdown>
                <Navbar.Link isActive href="#">
