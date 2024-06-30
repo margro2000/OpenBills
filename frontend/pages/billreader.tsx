@@ -16,30 +16,42 @@ export const fetchData = async () => {
   return response.json();
 };
 
+let count = 0;
+
 const generateResponse = async (prompt) => {
-  //   try {
-  //     const response = await fetch(`http://127.0.0.1:8000/summarize_bill/`, {
-  //       method: "POST",
-  //       body: prompt,
-  //     });
+  const formData = new FormData();
+  formData.append("question", prompt);
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/ask_bill/`, {
+      method: "POST",
+      body: formData,
+    });
 
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not ok");
-  //     }
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-  //     console.log("Status:", response.status);
-  //     console.log("Status Text:", response.statusText);
+    console.log("Status:", response.status);
+    console.log("Status Text:", response.statusText);
 
-  //     const result: ApiResponse = await response.json();
-  //     console.log("Result:", result);
-  //     return result;
-  //   } catch (error) {
-  //     return error;
-  //   }
+    const result: ApiResponse = await response.json();
+    console.log("Result:", result);
+    return result;
+  } catch (error) {
+    return error;
+  }
 
-  return new Promise((res) =>
-    setTimeout(() => res("this is the response"), 5000)
-  );
+  return new Promise((res) => {
+    const storage = [
+      "This bill is an infrastrucutre bill but includes some regulation for cyber security protocals and climate and energy regulation for new buildings",
+      "This bill is expectedThe bill provides approximately $1.2 trillion in spending over 8 years, with about $550 billion in new federal investments. Key areas of focus include Transportation: $110 billion for roads, bridges, and major infrastructure projects. $39 billion for public transit and $66 billion for passenger and freight rail. Broadband: $65 billion to improve internet access and affordability. Power infrastructure: $65 billion to upgrade the electric grid. Water systems: $55 billion for clean drinking water, including replacing lead pipes. Environmental remediation: $21 billion for cleaning up Superfund and brownfield sites. Electric vehicles: $7.5 billion for a nationwide network of charging stations. Cyber security: $2 billion to improve infrastructure security.",
+    ];
+
+    setTimeout(() => {
+      res(storage[count]);
+      count++;
+    }, 5000);
+  });
 };
 
 const BillReader: NextPage = () => {
