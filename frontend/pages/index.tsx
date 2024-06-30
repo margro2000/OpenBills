@@ -10,7 +10,7 @@ import {Features3} from '../components/features3';
 import {Testimonials} from '../components/tesminonials';
 import {Statistics} from '../components/statistics';
 import {Plans} from '../components/plans';
-import {Faq} from '../components/faq';
+// import {Faq} from '../components/faq';
 import {Trial} from '../components/trial';
 import {Footer} from '../components/footer';
 
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
             {/* <Testimonials /> */}
             {/* <Statistics /> */}
             {/* <Plans /> */}
-            <Faq />
+            {/* <Faq /> */}
             <Trial />
             {/* <Footer /> */}
          </Box>
