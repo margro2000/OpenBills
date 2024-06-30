@@ -51,7 +51,7 @@ export const Hero = () => {
                         display: 'inline',
                      }}
                   >
-                     for{' '}
+                     {' '}
                   </Text>
                   <Text
                      h1

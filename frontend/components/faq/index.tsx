@@ -19,7 +19,7 @@ export const Faq = () => {
                <Text span css={{color: '$blue600'}}>
                   FAQ
                </Text>
-               <Text h2>You Have Questions?</Text>
+               <Text h2>Questions?</Text>
                <Text
                   span
                   css={{
@@ -28,9 +28,7 @@ export const Faq = () => {
                      textAlign: 'center',
                   }}
                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  condimentum, nisl ut aliquam lacinia, nisl nisl aliquet
-                  aliquet
+                  
                </Text>
             </Flex>
 
@@ -47,8 +45,8 @@ export const Faq = () => {
                   <BoxIcon />
                   <Flex direction={'column'} css={{gap: '$3'}}>
                      <Text h3>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit?
+                     Why was this tool created?
+                        
                      </Text>
                      <Text
                         span
@@ -56,15 +54,7 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet aliquet Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Sed condimentum, nisl ut aliquam
-                        lacinia, nisl nisl aliquet aliquet Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit. Sed condimentum, nisl
-                        ut aliquam lacinia, nisl nisl aliquet aliquet Lorem
-                        ipsum dolor sit amet, aliquam lacinia, nisl nisl aliquet
-                        aliquet
+                        To help citizens understand complex legislation by breaking down long, complicated bills into clear, digestible information.
                      </Text>
                      <Text
                         span
@@ -72,12 +62,7 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                        nisl aliquet aliquet elit. Sed condimentum, nisl ut
-                        aliquam lacinia, nisl nisl aliquet aliquet elit. Sed
-                        condimentum, nisl ut aliquam lacinia, nisl nisl aliquet
-                        aliquet elit. Sed condimentum, nisl ut aliquam lacinia,
-                        nisl nisl aliquet aliquet
+                       
                      </Text>
                   </Flex>
                </Flex>
@@ -86,8 +71,8 @@ export const Faq = () => {
                   <BoxIcon />
                   <Flex direction={'column'} css={{gap: '$3'}}>
                      <Text h3>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit?
+                     What types of bills can I analyze with this tool?
+                        
                      </Text>
                      <Text
                         span
@@ -95,14 +80,7 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet aliquet Lorem ipsum dolor sit amet, consectetur
-                        adipiscing adipiscing elit. Sed condimentum, nisl ut
-                        aliquam lacinia, nisl nisl aliquet aliquet Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. Sed
-                        condimentum, nisl ut aliquam lacinia, nisl nisl aliquet
-                        aliquet
+                       Any legislative document, including federal bills, state laws, local ordinances, or even lengthy contracts. 
                      </Text>
                      <Text
                         span
@@ -110,10 +88,59 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                        nisl aliquet aliquet elit. Sed condimentum, nisl ut
-                        aliquam lacinia, nisl nisl aliquet aliquet elit. Sed
-                        condimentum, aliquet
+                       
+                     </Text>
+                  </Flex>
+               </Flex>
+               
+
+               {/* <Flex css={{gap: '$5'}} justify={'center'}>
+                  <BoxIcon />
+                  <Flex direction={'column'} css={{gap: '$3'}}>
+                     <Text h3>
+                     What types of bills can I analyze with this tool?
+                   
+                     </Text>
+                     <Text
+                        span
+                        css={{
+                           color: '$accents8',
+                        }}
+                     >
+                       Any legislative document, including federal bills, state laws, local ordinances, or even lengthy contracts. It's designed for text-heavy documents.
+                     </Text>
+                     <Text
+                        span
+                        css={{
+                           color: '$accents8',
+                        }}
+                     >
+                       
+                     </Text>
+                  </Flex>
+               </Flex> */}
+
+               <Flex css={{gap: '$5'}} justify={'center'}>
+                  <BoxIcon />
+                  <Flex direction={'column'} css={{gap: '$3'}}>
+                     <Text h3>
+                     How does this tool help identify lobbyist influence?
+                     </Text>
+                     <Text
+                        span
+                        css={{
+                           color: '$accents8',
+                        }}
+                     >
+                        It uses AI to detect patterns, specific language, or provisions that might indicate special interest additions to bills.
+                     </Text>
+                     <Text
+                        span
+                        css={{
+                           color: '$accents8',
+                        }}
+                     >
+                    
                      </Text>
                   </Flex>
                </Flex>
@@ -122,8 +149,7 @@ export const Faq = () => {
                   <BoxIcon />
                   <Flex direction={'column'} css={{gap: '$3'}}>
                      <Text h3>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit?
+                     Are there any limitations to what this tool can do?
                      </Text>
                      <Text
                         span
@@ -131,9 +157,7 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet
+                        While it can provide analysis and highlight potential areas of interest, it can't replace human judgment or legal expertise.
                      </Text>
                      <Text
                         span
@@ -141,45 +165,7 @@ export const Faq = () => {
                            color: '$accents8',
                         }}
                      >
-                        elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                        nisl aliquet aliquet elit. Sed condimentum, nisl ut
-                        aliquam lacinia, nisl nisl aliquet aliquet elit. Sed
-                        condimentum, Sed condimentum, nisl ut aliquam lacinia,
-                        nisl nisl aliquet aliquet
-                     </Text>
-                  </Flex>
-               </Flex>
-
-               <Flex css={{gap: '$5'}} justify={'center'}>
-                  <BoxIcon />
-                  <Flex direction={'column'} css={{gap: '$3'}}>
-                     <Text h3>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit?
-                     </Text>
-                     <Text
-                        span
-                        css={{
-                           color: '$accents8',
-                        }}
-                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet aliquet Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                     </Text>
-                     <Text
-                        span
-                        css={{
-                           color: '$accents8',
-                        }}
-                     >
-                        elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                        nisl aliquet aliquet elit. Sed condimentum, nisl ut
-                        aliquam lacinia, nisl nisl aliquet aliquet elit. Sed
-                        condimentum, nisl ut aliquam lacinia, nisl nisl aliquet
-                        aliquet elit. Sed condimentum, nisl ut aliquam lacinia,
-                        nisl nisl aliquet aliquet
+                     
                      </Text>
                   </Flex>
                </Flex>
