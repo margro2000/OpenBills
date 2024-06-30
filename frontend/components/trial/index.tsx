@@ -1,6 +1,7 @@
 import {Button, Divider, Text} from '@nextui-org/react';
 import React from 'react';
 import {Flex} from '../styles/flex';
+import Link from 'next/link';
 
 export const Trial = () => {
    return (
@@ -14,7 +15,7 @@ export const Trial = () => {
             direction={'column'}
             align={'center'}
          >
-            <Text h3>Start your free trials</Text>
+            <Text h3>Get Started Now</Text>
             <Text
                span
                css={{
@@ -23,11 +24,14 @@ export const Trial = () => {
                   textAlign: 'center',
                }}
             >
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-               condimentum, nisl
+              It's as simple as uploading a document and chatting with it. All users get access and it gets added to our library
             </Text>
 
-            <Button>Button</Button>
+            <Link href="/billreader">
+
+        <Button>Upload a Bill</Button>
+ 
+</Link>
          </Flex>
 
          <Divider
