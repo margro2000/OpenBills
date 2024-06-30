@@ -1,7 +1,10 @@
 import os
 from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
 from yap import YAP
-def deyappify(text, model = "claude-3-5-sonnet-20240620"):
+
+def deyappify(text, model = "claude-3-5-sonnet-20240620", testing=True):
+    if testing:
+        return text[:500]
     client = Anthropic()
     
     
